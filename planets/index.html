@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+
+
+<html>
+
+<head>
+    <meta name="viewport" content="initial-scale=1.0, user-scalable=no">
+    <meta charset="utf-8">
+    <title>Google Map API</title>
+    <!--<link rel="stylesheet" href="./css/style.css">-->
+    <style>
+        html,
+        body {
+            height: 100%;
+            margin: 10;
+            padding: 0;
+            }
+        #map {
+            height: 80%;
+            max-width : none;
+            }
+
+            
+            
+    </style>
+
+
+
+    <body>
+        <script>
+            var centerUser = { lat: 52.519265, lng: 13.401108 };
+            
+            var anchorModelSize;
+
+            const centerDef = { lat: 52.5207936, lng: 13.40941094 };
+
+            var centers = { 
+                    Home: {
+                        lat: 52.491035,
+                        lng: 13.348411
+                    },
+                    Fernseherturm: {
+                        lat: 52.5207936,
+                        lng: 13.40941094
+                    },
+                    Reichstag : {
+                        lat: 52.518547,
+                        lng: 13.376179
+                    },
+                    WeltUhr: {
+                        lat: 52.521187,
+                        lng: 13.413314
+                    },
+                    BrangeburgerTor: {
+                        lat: 52.516308,
+                        lng: 13.377698
+                    }
+            };
+
+            const anchorEarthDiametr = 12756200;
+            const astroUnit = 149597870700;
+
+            var objectsmap = {
+                    mercury: {
+                        modelsize: 0,
+                        diametr: 4879000,
+                        sundistanceAU: 0.387098,
+                        sundistance: 0
+                    },
+                    venus: {
+                        modelsize: 0,
+                        diametr: 12103600,
+                        sundistanceAU: 0.723,
+                        sundistance: 0
+                    },
+                    earth: {
+                        modelsize: 0,
+                        diametr: 12756200.00,
+                        sundistanceAU: 1,
+                        sundistance: 0
+                    },
+                    mars: {
+                        modelsize: 0,
+                        diametr: 6792400.00,
+                        sundistanceAU: 1.523662,
+                        sundistance: 0
+                    },
+                    jupiter: {
+                        modelsize: 0,
+                        diametr: 142984000.00,
+                        sundistanceAU: 5.2044,
+                        sundistance: 0
+                    },
+                    saturn: {
+                        modelsize: 0,
+                        diametr: 120536000,
+                        sundistanceAU: 9.582,
+                        sundistance: 0
+                    },
+                    uranus: {
+                        modelsize: 0,
+                        diametr: 51118000,
+                        sundistanceAU: 19.22941195,
+                        sundistance: 0
+                    },
+                    neptune: {
+                        modelsize: 0,
+                        diametr: 49528000.00,
+                        sundistanceAU: 30.10366151,
+                        sundistance: 0
+                    },
+                    sun: {
+                        modelsize: 0,
+                        diametr: 1392000000.00,
+                        sundistanceAU: 0,
+                        sundistance: 0
+                    }
+            };
+            
+
+            function SelectPoint() {
+                var mylist = document.getElementById("myList");
+                var item = mylist.options[mylist.selectedIndex].text;
+                //document.getElementById("center").innerHTML = mylist.options[mylist.selectedIndex].text;
+                centerUser.lat = centers[item].lat;
+                centerUser.lng = centers[item].lng;
+                //centerUser.lat = listTest.[mylist].lat;
+                //centerUser.lng = listTest.[mylist].lng;
+                //document.getElementById("test").innerHTML = centerUser.lat+ "   "+ centerUser.lng;
+            }
+
+
+            function distanceCalc(){
+                anchorModelSize = document.getElementById("numb").value;
+                var text = "";
+                for (var planet in objectsmap) {
+                    //x = objectsmap[planet].diametr
+                    //objectsmap[planet].modelsize
+                    objectsmap[planet].modelsize = objectsmap[planet].diametr * anchorModelSize / anchorEarthDiametr;
+                    objectsmap[planet].sundistance = (objectsmap[planet].sundistanceAU * astroUnit * objectsmap[planet].modelsize *0.001) / objectsmap[planet].diametr;
+
+                    //objectsmap[planet].sundistance = 
+                    text += planet + " " + objectsmap[planet].modelsize + "<br>";
+               } 
+                document.getElementById("planets").innerHTML = text;
+            }
+            
+            // map variable in global scope
+            var map;
+            //Initialise la map
+            function initMap() {
+                // Create the map.
+                map = new google.maps.Map(document.getElementById('map'), {
+                    zoom: 12,
+                    center: centerDef,
+                    //center: new google.maps.LatLng(centerUser.lat, centerUser.lng),
+                    mapTypeId: 'hybrid'
+                });
+            }
+
+
+
+            function drawOnclick() {
+                // alert("clicked");
+                    for (var planet in objectsmap) {
+                // Add the circle for this city to the map.
+                    var cityCircle = new google.maps.Circle({
+                        strokeColor: '#FF0000',
+                        strokeOpacity: 0.8,
+                        strokeWeight: 2,
+                        fillColor: '#FF0000',
+                        fillOpacity: 0.0,
+                        map: map,
+                        center: new google.maps.LatLng(centerUser.lat, centerUser.lng),
+                        //center: centerDef,
+                        radius: objectsmap[planet].sundistance
+                    });
+                }
+            }
+        </script>
+        
+        <aside class="sidebar">
+        
+            <form name="form1">
+                Please enter your model Earth size, mm: <input type="text" id="numb" name="model" value="21"><br>
+                <!-- lat: <input type="text" id="lat" name="lat" value="52.5207936"><br>
+                lon: <input type="text" id="lng" name="lon" value="13.40941094"><br> -->
+            </form>
+
+            <form>
+                Select your center point:
+                <select id="myList" onchange="SelectPoint()">
+                    <option></option>
+                    <option>Home</option>
+                    <option>Fernseherturm</option>
+                    <option>Reichstag</option>
+                    <option>WeltUhr</option>
+                    <option>BrangeburgerTor</option>
+                </select>
+            </form>
+        
+            <button type="button" onclick="distanceCalc()">Confirm</button>
+            <p id="test"></p>
+            <p id="enter"></p>
+            <p id="planets"></p>
+        
+            <!--<button type="button" onclick="distanceCalc()">Calculate</button> -->
+        
+            <input id="clickMe" type="button" value="DRAW!!" onclick="drawOnclick();">
+        </aside>
+
+        <div id="map"></div>
+    
+        <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDBDofYTKpxl4v-NnCFMpJxurGs6NlLK2Q&amp;libraries=visualization&amp;callback=initMap" async="async" defer="defer"></script>
+    </body>
+
+</html>
