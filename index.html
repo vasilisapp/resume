@@ -5,18 +5,210 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>My Pages</title>
-</head>
+    <title>My resume</title>
+    <link rel="stylesheet" href="./css/style.css"> </head>  
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;400;700&display=swap" rel="stylesheet">
 
 <body>
-    <ul>
-        <li>
-            <a href="myresume/index.html">myresume</a>
-        </li>
-        <li>
-            <a href="planetssystem/index.html">planets in Berlin</a>
-        </li>
-    </ul>
+    <!-- main container -->
+    <div class="wrapper">
+        <aside class="sidebar">
+            <img class="my-photo" src="./img/IMG_4742.jpeg" alt="My photo">
+
+            <!-- Contact container -->
+            <div class="contacts">
+                <h3 class="contacts-titel">Contacts</h3>
+                <div>
+                    <span class="contacts-links-titel">Personal phone:</span>
+                    <a class="contacts-links" href="tel:380951138598"> +38 095 113 85 9</a>
+                </div>
+                <div>
+                    <span class="contacts-links-titel">e-mail:</span>
+                    <a class="contacts-links" href="mailto:chornyiav@gmail.com"> chornyiav@gmail.com</a>
+                </div>
+            </div>
+
+            <!-- Tech Skills container -->
+            <div class="Tech-Skill-container">
+                <h3 class="Tech-Skill-titel">Tech Skills</h3>
+                <ul>
+                    <li class="Tech-Skill-item">
+                        <span class="Tech-Skill-text">Python</span>
+                    </li>
+                    <li class="Tech-Skill-item">
+                        <span class="Tech-Skill-text">SQL</span>
+                    </li>
+                    <li class="Tech-Skill-item">
+                        <span class="Tech-Skill-text">MATLAB</span>
+                    </li>
+                    <li class="Tech-Skill-item">
+                        <span class="Tech-Skill-text">
+                            <span class="Tech-Skill-text">WebPack</span>
+                    </li>
+                    <li class="Tech-Skill-item">
+                        <span class="Tech-Skill-text">JavaScript</span>
+                    </li>
+                    <li class="Tech-Skill-item">
+                        <span class="Tech-Skill-text">React.js</span>
+                    </li>
+                    <li class="Tech-Skill-item">
+                        <span class="Tech-Skill-text">Node.js</span>
+                    </li>
+
+                </ul>
+            </div>
+
+            <!-- Soft Skills container -->
+            <div class="Soft-Skill-container">
+                <h3 class="Soft-Skill-titel">Soft Skills</h3>
+                <ul>
+                    <li class="Soft-Skill-item">
+                        <span class="Soft-Skill-text">Scrum</span>
+                    </li>
+                    <li class="Soft-Skill-item">
+                        <span class="Soft-Skill-text">Agile</span>
+                    </li>
+                    <li class="Soft-Skill-item">
+                        <span class="Soft-Skill-text">GTD</span>
+                    </li>
+                    <li class="Soft-Skill-item">
+                        <span class="Soft-Skill-text">Teamwork</span>
+                    </li>
+                </ul>
+            </div>
+        </aside>
+
+        <!-- about me container -->
+        <div class="about-me-container">
+
+            <!-- main about me container -->
+            <div class="info-container">
+                <h1 class="name">Yevheniia Bu</h1>
+                <h4 class="profession">SOFTWARE DEVELOPER</h4>
+
+                <p class="summary">9+ years and 35+ projects of experience in software development (front-end and back-end) for automatic control
+                    systems in industries, railway transport etc.
+                </p>
+            </div>
+
+            <!-- projects container -->
+            <div class="projects-container">
+                <h3 class="about-me-titels">Projects</h3>
+
+                <ol>
+                    <li class="project-item">
+                        <a class="projects-link" href="https://vasilisapp.github.io/planetsInBerlin/index.html">planets_in_berlin/</a>
+                        <span class="dots">........................</span>
+                        <span>
+                            <b>[ </b>
+                            <span class="tech-name">HTML5, CSS3
+                            </span>
+                            <b> ]</b>
+                        </span>
+
+                    </li>
+                    <li class="project-item">
+                        <a class="projects-link" href="https://cryptohub.goit.ua/">https://cryptohub.goit.ua/</a>
+                        <span class="dots">.................................</span>
+                        <span>
+                            <b>[ </b>
+                            <span class="tech-name">JavaScript
+                            </span>
+                            <b> ]</b>
+                        </span>
+                    </li>
+                    <li class="project-item">
+                        <a class="projects-link" href="https://kidslike.goit.co.ua">https://kidslike.goit.co.ua/</a>
+                        <span class="dots">.................................</span>
+                        <span>
+                            <b>[ </b>
+                            <span class="tech-name">React.js, Node.js
+                            </span>
+                            <b> ]</b>
+                        </span>
+
+                    </li>
+                </ol>
+
+            </div>
+
+            <!-- work experience container -->
+            <div>
+                <h3 class="about-me-titels">Work Experience</h3>
+
+                <!-- company 1 -->
+                <div>
+                    <h4 class="job-titel">Front-End Developer
+                        <span class="company-name">Freelance</span>
+                    </h4>
+                    <span class="job-period">September 2019 - up to now
+                        <span class="job-div">|</span> Ukraine</span>
+                    <ul class="job-duties">
+                        <li class="job-item">PLC/SCADA HMI/GIS/MES/ERP - Agriculture Automotive;</li>
+                        <li class="job-item">SCADA HMI/MES/CAD/ERP/ - Gas & Oil Storage, Transportation;</li>
+                        <li class="job-item">Financial Responsibility Center Automation - Finance;</li>
+                        <li class="job-item">PANTOS (LG) Ukraine Logistics Center Automation - Logistics.</li>
+                        <li class="job-item">Start-up company with an innovating controlling solution for agriculture. Our project intended to
+                            create a full solution from hardware to software to control and manage at distance the activity
+                            of farms from 5 000 ha to more than 100 000 ha, integrating them to the main ERP system used
+                            in CIS, 1C.</li>
+
+                    </ul>
+                </div>
+
+                <!-- company 2 -->
+                <div>
+                    <h4 class="job-titel">System Analyst
+                        <span class="company-name">Control Group Ltd</span>
+                    </h4>
+                    <span class="job-period">June 2008 - August 2014
+                        <span class="job-div">|</span> Ukraine</span>
+                    <ul class="job-duties">
+                        <li class="job-item">Deploying, developing software requirements, end-user training and supporting agricultural software
+                            made by Control Group Ltd and other vendors</li>
+                        <li class="job-item">Developing software requirements for planning agricultural operations, real time field operations
+                            monitoring and providing reports to management</li>
+                        <li class="job-item">Decision Support System for Liquid Fuel Transportation Process Control in Conditions of Dynamic Restrictions
+                            (Gas&Oil Transportation).</li>
+
+                    </ul>
+                </div>
+
+                <!-- company 3 -->
+                <div>
+                    <h4 class="job-titel">Assistant Lecturer
+                        <span class="company-name">Petro Mohyla Black Sea State University
+
+                    </h4>
+                    <span class="job-period">September 2008 - August 2009
+                        <span class="job-div">|</span> Ukraine</span>
+                    </span>
+                    <ul class="job-duties">
+                        <li class="job-item">Development of programs in programing language Matlab for statistical processing of experimental
+                            data.
+                        </li>
+                        <li class="job-item">Mathematical modelling and simulation of physical processes.</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- education container -->
+            <div>
+                <h3 class="about-me-titels">Education</h3>
+
+                <!-- Universitet -->
+                <div>
+                    <h4 class="company-name">Admiral Makarov National University of Shipbuilding</h4>
+                    <h5 class="uni-degree">Master's degree</h5>
+                    <h5 class="uni-fach">Computer science, Computer aided control system</h5>
+                    <span class="job-period">September 2002 - February 2008
+                        <span class="job-div">|</span> Ukraine</span>
+                    </span>
+
+                </div>
+            </div>
+        </div>
+    </div>
 </body>
 
 </html>
