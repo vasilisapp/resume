@@ -1,0 +1,25 @@
+body {
+  height: 100%;
+  margin: 10;
+  padding: 0;
+}
+/*.wrapper {
+  background: #fff;
+  display: flex;
+  max-width: 1200px;
+  /*margin: 0 auto;
+  box-shadow: 5px 9px 20px rgba(0, 0, 0, 0.15);
+}*/
+
+/*.sidebar {
+  background: #1e2939;
+  width: 200 px;
+  padding-left: 10px;
+  padding-top: 10px;
+  color: #fff;
+}*/
+
+#map {
+  height: 80%;
+  max-width: none;
+}
